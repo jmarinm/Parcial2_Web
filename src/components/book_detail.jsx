@@ -18,23 +18,18 @@ export default function BookDetail(props) {
     else return "No";
   };
   const { user } = useContext(UserContext);
-  
-    const summary = () => {
-      if (user.rol == "Administrador"){
-        return (
-          <InputGroup >
-                <Form.Control
-                as="textarea"
-                  value={props.book.summary}
-                />
-              </InputGroup>
-        )
-      } else {
-        return (
-          <Card.Text>{props.book.summary}</Card.Text>
-        )
-      }
+
+  const summary = () => {
+    if (user.rol == "Administrador") {
+      return (
+        <InputGroup>
+          <Form.Control as="textarea" value={props.book.summary} />
+        </InputGroup>
+      );
+    } else {
+      return <Card.Text>{props.book.summary}</Card.Text>;
     }
+  };
 
   if (props.book) return FilledCard();
   else return <Card className="mt-3" style={{ minHeight: "80vh" }}></Card>;
@@ -58,7 +53,7 @@ export default function BookDetail(props) {
                   fontWeight: "bold",
                 }}
               >
-                <FormattedMessage id="summary"/>
+                <FormattedMessage id="summary" />
               </Card.Text>
               {summary()}
             </Row>
@@ -77,13 +72,11 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-            <FormattedMessage id="ISBN"/>
+              <FormattedMessage id="ISBN" />
             </Col>
             <Col sm={8}>
               <InputGroup>
-                <Form.Control
-                  value={props.book.isbn}
-                />
+                <Form.Control value={props.book.isbn} />
               </InputGroup>
             </Col>
           </Row>
@@ -105,7 +98,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-            <FormattedMessage id="publisher"/>
+              <FormattedMessage id="publisher" />
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -118,7 +111,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-            <FormattedMessage id="genre"/>
+              <FormattedMessage id="genre" />
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -131,7 +124,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-            <FormattedMessage id="year"/>
+              <FormattedMessage id="year" />
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -144,7 +137,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-            <FormattedMessage id="available-online"/>
+              <FormattedMessage id="available-online" />
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -157,7 +150,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-            <FormattedMessage id="price"/>
+              <FormattedMessage id="price" />
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -177,13 +170,27 @@ export default function BookDetail(props) {
               //fontSize: "1.5rem",
             }}
           >
-            <Card.Text><FormattedMessage id="ISBN"/></Card.Text>
-            <Card.Text><FormattedMessage id="author"/></Card.Text>
-            <Card.Text><FormattedMessage id="publisher"/></Card.Text>
-            <Card.Text><FormattedMessage id="genre"/></Card.Text>
-            <Card.Text><FormattedMessage id="year"/></Card.Text>
-            <Card.Text><FormattedMessage id="available-online"/></Card.Text>
-            <Card.Text><FormattedMessage id="price"/></Card.Text>
+            <Card.Text>
+              <FormattedMessage id="ISBN" />
+            </Card.Text>
+            <Card.Text>
+              <FormattedMessage id="author" />
+            </Card.Text>
+            <Card.Text>
+              <FormattedMessage id="publisher" />
+            </Card.Text>
+            <Card.Text>
+              <FormattedMessage id="genre" />
+            </Card.Text>
+            <Card.Text>
+              <FormattedMessage id="year" />
+            </Card.Text>
+            <Card.Text>
+              <FormattedMessage id="available-online" />
+            </Card.Text>
+            <Card.Text>
+              <FormattedMessage id="price" />
+            </Card.Text>
           </Col>
           <Col style={{ textAlign: "start" }}>
             <Card.Text>{props.book.isbn}</Card.Text>
@@ -198,38 +205,4 @@ export default function BookDetail(props) {
       );
     }
   }
-}
-{
-  /* <Col
-                style={{
-                  textAlign: "start",
-                  fontWeight: "bold",
-                  //fontSize: "1.5rem",
-                }}
-              >
-                <Card.Text>ISBN</Card.Text>
-                <Card.Text>Autor</Card.Text>
-                <Card.Text>Publicador</Card.Text>
-                <Card.Text>Genero</Card.Text>
-                <Card.Text>Año</Card.Text>
-                <Card.Text>Disponible en linea</Card.Text>
-                <Card.Text>Precio</Card.Text>
-              </Col>
-              <Col style={{ textAlign: "start" }}>
-                <InputGroup>
-                  <Form.Control
-                    value={props.book.isbn}
-                  />
-                </InputGroup>
-                <InputGroup>
-                  <Form.Control
-                    value={props.book.author}
-                  />
-                </InputGroup>
-                <Card.Text>{props.book.publisher}</Card.Text>
-                <Card.Text>{props.book.gender}</Card.Text>
-                <Card.Text>{props.book.year}</Card.Text>
-                <Card.Text>{available()}</Card.Text>
-                <Card.Text>{props.book.price}</Card.Text>
-              </Col> */
 }

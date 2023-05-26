@@ -37,19 +37,18 @@ export default function BookList() {
   };
   return (
     <div>
-      <Navbar style={{backgroundColor:"rgb(148, 191, 167)"}} variant="dark">
-          <Navbar.Brand className="mx-4">
-            <img
-              alt=""
-              src="https://static.vecteezy.com/system/resources/previews/008/508/384/original/stack-of-books-isolated-on-white-background-png.png"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{" "}
-            Tu Libreria Aliada
-          </Navbar.Brand>
-          <Nav.Link href="/login">Login</Nav.Link>
-        
+      <Navbar style={{ backgroundColor: "rgb(148, 191, 167)" }} variant="dark">
+        <Navbar.Brand className="mx-4">
+          <img
+            alt=""
+            src="https://static.vecteezy.com/system/resources/previews/008/508/384/original/stack-of-books-isolated-on-white-background-png.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          Tu Libreria Aliada
+        </Navbar.Brand>
+        <Nav.Link href="/login">Login</Nav.Link>
       </Navbar>
       <Container style={{ minWidth: "100%" }}>
         {logged()}

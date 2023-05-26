@@ -93,7 +93,7 @@ export default function Login() {
                   fontSize: "2rem",
                 }}
               >
-                <FormattedMessage id="motto"/>
+                <FormattedMessage id="motto" />
               </p>
             </Row>
           </Col>
@@ -113,30 +113,38 @@ export default function Login() {
             <Row xs={8} className="px-4">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label><FormattedMessage id="email-label"/></Form.Label>
+                  <Form.Label>
+                    <FormattedMessage id="email-label" />
+                  </Form.Label>
                   <Form.Control
                     required
                     type="email"
-                    placeholder={intl.formatMessage({id:'email-placeholder'})}
+                    placeholder={intl.formatMessage({
+                      id: "email-placeholder",
+                    })}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <Form.Control.Feedback type="invalid">
-                  <FormattedMessage id="email-feedback"/>
+                    <FormattedMessage id="email-feedback" />
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label><FormattedMessage id="password-label"/></Form.Label>
+                  <Form.Label>
+                    <FormattedMessage id="password-label" />
+                  </Form.Label>
                   <Form.Control
                     required
                     type="password"
-                    placeholder={intl.formatMessage({id:'password-placeholder'})}
+                    placeholder={intl.formatMessage({
+                      id: "password-placeholder",
+                    })}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     isInvalid={password.length > 0 && password.length < 6}
                   />
                   <Form.Control.Feedback type="invalid">
-                    <FormattedMessage id="password-feedback"/>
+                    <FormattedMessage id="password-feedback" />
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="primary" type="submit">
