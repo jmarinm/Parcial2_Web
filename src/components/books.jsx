@@ -48,7 +48,7 @@ export default function BookList() {
             />{" "}
             Tu Libreria Aliada
           </Navbar.Brand>
-          <Nav.Link href="/login">Home</Nav.Link>
+          <Nav.Link href="/login">Login</Nav.Link>
         
       </Navbar>
       <Container style={{ minWidth: "100%" }}>

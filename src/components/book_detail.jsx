@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import CONFIG from "../config";
 import UserContext from "../contexts/UserContext";
+import { FormattedMessage } from "react-intl";
 
 export default function BookDetail(props) {
   const available = () => {
@@ -57,7 +58,7 @@ export default function BookDetail(props) {
                   fontWeight: "bold",
                 }}
               >
-                Resumen:{" "}
+                <FormattedMessage id="summary"/>
               </Card.Text>
               {summary()}
             </Row>
@@ -76,7 +77,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-              ISBN
+            <FormattedMessage id="ISBN"/>
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -104,7 +105,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-              Publicador
+            <FormattedMessage id="publisher"/>
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -117,7 +118,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-              Genero
+            <FormattedMessage id="genre"/>
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -130,7 +131,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-              Año
+            <FormattedMessage id="year"/>
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -143,7 +144,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-              Disponible en linea
+            <FormattedMessage id="available-online"/>
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -156,7 +157,7 @@ export default function BookDetail(props) {
             style={{ alignItems: "center", display: "flex" }}
           >
             <Col sm={4} style={{ fontWeight: "bold" }}>
-              Precio
+            <FormattedMessage id="price"/>
             </Col>
             <Col sm={8}>
               <InputGroup>
@@ -176,13 +177,13 @@ export default function BookDetail(props) {
               //fontSize: "1.5rem",
             }}
           >
-            <Card.Text>ISBN</Card.Text>
-            <Card.Text>Autor</Card.Text>
-            <Card.Text>Publicador</Card.Text>
-            <Card.Text>Genero</Card.Text>
-            <Card.Text>Año</Card.Text>
-            <Card.Text>Disponible en linea</Card.Text>
-            <Card.Text>Precio</Card.Text>
+            <Card.Text><FormattedMessage id="ISBN"/></Card.Text>
+            <Card.Text><FormattedMessage id="author"/></Card.Text>
+            <Card.Text><FormattedMessage id="publisher"/></Card.Text>
+            <Card.Text><FormattedMessage id="genre"/></Card.Text>
+            <Card.Text><FormattedMessage id="year"/></Card.Text>
+            <Card.Text><FormattedMessage id="available-online"/></Card.Text>
+            <Card.Text><FormattedMessage id="price"/></Card.Text>
           </Col>
           <Col style={{ textAlign: "start" }}>
             <Card.Text>{props.book.isbn}</Card.Text>

@@ -1,3 +1,19 @@
 {
-    
+    "motto":"Encuentra hasta el libro que no estabas buscando",
+    "email-label":"Correo electrónico",
+    "password-label":"Contraseña",
+    "email-placeholder":"Ingrese su correo electrónico",
+    "password-placeholder":"Contraseña",
+    "sign-in":"Entrar",
+    "login-button":"login",
+    "ISBN": "ISBN",
+    "author":"Autor",
+    "publisher":"Publicador",
+    "genre":"Genero",
+    "year":"Año",
+    "available-online":"Disponible en linea",
+    "price":"Precio",
+    "summary":"Resumen",
+    "email-feedback":"Por favor ingrese un correo valido",
+    "password-feedback":"La contraseña debe tener minimo 6 caracteres"
 }

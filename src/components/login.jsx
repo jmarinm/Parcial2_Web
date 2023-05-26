@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import CONFIG from "../config";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function Login() {
   const [validated, setValidated] = useState(false);
@@ -12,6 +13,7 @@ export default function Login() {
   let navigate = useNavigate();
 
   const { user, handleLogin, handleLogout } = useContext(UserContext);
+  const intl = useIntl();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -91,7 +93,7 @@ export default function Login() {
                   fontSize: "2rem",
                 }}
               >
-                Encuentra hasta el libro que no estabas buscando
+                <FormattedMessage id="motto"/>
               </p>
             </Row>
           </Col>
@@ -106,35 +108,35 @@ export default function Login() {
                 fontWeight: "bolder",
               }}
             >
-              <p style={{ minWidth: "100%" }}> Tu Libreria Aliada</p>
+              <p style={{ minWidth: "100%" }}>Tu Libreria Aliada</p>
             </Row>
             <Row xs={8} className="px-4">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Correo electronico</Form.Label>
+                  <Form.Label><FormattedMessage id="email-label"/></Form.Label>
                   <Form.Control
                     required
                     type="email"
-                    placeholder="Ingrese su correo"
+                    placeholder={intl.formatMessage({id:'email-placeholder'})}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <Form.Control.Feedback type="invalid">
-                    Por favor ingrese un correo valido
+                  <FormattedMessage id="email-feedback"/>
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label><FormattedMessage id="password-label"/></Form.Label>
                   <Form.Control
                     required
                     type="password"
-                    placeholder="Contraseña"
+                    placeholder={intl.formatMessage({id:'password-placeholder'})}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     isInvalid={password.length > 0 && password.length < 6}
                   />
                   <Form.Control.Feedback type="invalid">
-                    La contraseña debe tener minimo 6 caracteres
+                    <FormattedMessage id="password-feedback"/>
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="primary" type="submit">

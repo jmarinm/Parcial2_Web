@@ -1,0 +1,19 @@
+{
+    "motto":"Even find the book you were not looking for",
+    "email-label":"Email",
+    "password-label":"Password",
+    "email-placeholder":"Your email adress",
+    "password-placeholder":"Password",
+    "sign-in":"Sign in",
+    "login-button":"login",
+    "ISBN": "ISBN",
+    "author":"Author",
+    "publisher":"Publisher",
+    "genre":"Genre",
+    "year":"Year",
+    "available-online":"Available on-line",
+    "price":"Price",
+    "summary":"Summary",
+    "email-feedback":"Please insert a valid email",
+    "password-feedback":"Password must have minimum 6 characters"
+}
