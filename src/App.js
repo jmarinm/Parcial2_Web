@@ -1,22 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './components/login';
-import BookList from './components/books';
-import BookDetail from './components/book_detail';
+import React, { createContext, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./components/login";
+import BookList from "./components/books";
+import BookDetail from "./components/book_detail";
+import UserContext from "./contexts/UserContext";
 
 function App() {
+
+  const [user, setUser] = useState(null);
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/books" element={<BookList />} />
-          <Route path="/books/:bookId" element={<BookDetail />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <UserContext.Provider value={{ user, handleLogin, handleLogout }}>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<BookList />} />
+
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </UserContext.Provider>
   );
 }
 

@@ -1,19 +1,53 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
+import CONFIG from "../config";
+import UserContext from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [validated, setValidated] = useState(false);
-  const [validPassword, setValidPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  let navigate = useNavigate();
+
+  const { user, handleLogin, handleLogout } = useContext(UserContext);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+
+    if (form.checkValidity() === false || password.length < 6) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      event.preventDefault();
+      event.stopPropagation();
+      let data = {
+        email: email,
+        password: password,
+      };
+      fetch(CONFIG.API_URL + "login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.statusCode) {
+            console.log(data);
+          } else {
+            handleLogin(data);
+            navigate("/home");
+          }
+        })
+        .catch((error) => {
+          console.log("Error", error);
+        });
     }
-    console.log(validPassword);
     setValidated(true);
   };
+
+  handleLogout();
   return (
     <div
       style={{
@@ -25,6 +59,7 @@ export default function Login() {
       }}
     >
       <Container
+        className="shadow"
         style={{
           minHeight: "80vh",
           maxWidth: "60%",
@@ -76,11 +111,13 @@ export default function Login() {
             <Row xs={8} className="px-4">
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>User name or email</Form.Label>
+                  <Form.Label>Correo electronico</Form.Label>
                   <Form.Control
                     required
                     type="email"
-                    placeholder="Enter email"
+                    placeholder="Ingrese su correo"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <Form.Control.Feedback type="invalid">
                     Por favor ingrese un correo valido
@@ -89,10 +126,12 @@ export default function Login() {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
-                    
+                    required
                     type="password"
-                    placeholder="Password"
-                    isInvalid={validPassword}
+                    placeholder="Contraseña"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    isInvalid={password.length > 0 && password.length < 6}
                   />
                   <Form.Control.Feedback type="invalid">
                     La contraseña debe tener minimo 6 caracteres
