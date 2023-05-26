@@ -10,9 +10,14 @@ import localeEsMessages from "./locales/es";
 import localeEnMessages from "./locales/en";
 
 
+const messages={
+  'es-ES': localeEsMessages,
+  'en-US': localeEnMessages
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
+console.log(navigator.language)
 root.render(
-  <IntlProvider locale="en-US" messages={localeEnMessages}>
+  <IntlProvider locale={navigator.language} messages={messages[navigator.language] || localeEsMessages}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
